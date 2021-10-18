@@ -12,6 +12,8 @@ namespace MiPrimerArreglo
 {
     public partial class Form1 : Form
     {
+        string[] Nombre;
+        int pos = 0;
         public Form1()
         {
             InitializeComponent();
@@ -36,5 +38,31 @@ namespace MiPrimerArreglo
 
 
         }
+
+        private void btDimensionar_Click(object sender, EventArgs e)
+        {
+            int cant = Convert.ToInt32(txtCant.Text);
+            Nombre = new string[cant];
+
+        }
+
+        private void btCargar_Click(object sender, EventArgs e)
+        {
+            Nombre[pos] = txtNombres.Text;
+            pos = pos + 1;
+            txtNombres.Focus();
+            txtNombres.SelectAll();
+        }
+
+        private void btMostrar_Click(object sender, EventArgs e)
+        {
+            lblLista.Text = "";
+            foreach (string item in Nombre)
+            {
+                lblLista.Text = lblLista.Text + item + "\r\n";
+            }
+        }
+
+       
     }
 }
